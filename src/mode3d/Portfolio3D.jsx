@@ -120,13 +120,33 @@ function Hero3D() {
           Available for Internships · Bagalkot, Karnataka
         </div>
 
-        {/* name */}
-        <h1 style={{ fontFamily:"'Orbitron',monospace", fontSize:'clamp(3.5rem,10vw,8rem)', fontWeight:900, lineHeight:.9, letterSpacing:'-.02em', marginBottom:'1.5rem' }}>
-          <span style={{ display:'block', color:WHITE, textShadow:'0 0 40px rgba(255,255,255,0.1)' }}>VISHWA</span>
-          <span style={{ display:'block', color:T, textShadow:`0 0 40px ${T}` }}>NATH</span>
-          <span style={{ display:'block', color:'rgba(255,255,255,0.25)', fontSize:'40%', letterSpacing:'.15em', marginTop:'1rem', fontWeight:400 }}>DIGGAVI</span>
-        </h1>
+        <h1 style={{ 
+  fontFamily:"'Orbitron',monospace",
+  fontSize:'clamp(3.5rem,10vw,8rem)',
+  fontWeight:900,
+  lineHeight:1,
+  letterSpacing:'-.02em',
+  marginBottom:'1.5rem'
+}}>
 
+  <span style={{ 
+    color:WHITE,
+    textShadow:'0 0 40px rgba(255,255,255,0.15)'
+  }}>
+    VISHWANATH
+  </span>
+
+  <span style={{ 
+    color:'rgba(255,255,255,0.55)',
+    fontSize:'55%',
+    marginLeft:'0.35em',
+    fontWeight:500,
+    letterSpacing:'0.08em'
+  }}>
+    DIGGAVI
+  </span>
+
+</h1>
         {/* typewriter */}
         <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:'1.05rem', color:MUTED, marginBottom:'2.5rem', display:'flex', alignItems:'center', gap:'.5rem' }}>
           <span style={{color:T}}>&gt;&gt;</span>&nbsp;{role}<span style={{animation:'blink 1s infinite', color:T}}>_</span>
