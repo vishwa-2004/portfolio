@@ -1,0 +1,60 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; transition: background 0.8s ease; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ── SHARED ANIMATIONS ── */
+@keyframes float    { 0%,100%{transform:translateY(0)}  50%{transform:translateY(-14px)} }
+@keyframes spin-cw  { to { transform: rotate(360deg) } }
+@keyframes spin-ccw { to { transform: rotate(-360deg) } }
+@keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes scanline { 0%{top:-10%} 100%{top:110%} }
+@keyframes glitch1  { 0%,100%{clip-path:inset(0 0 95% 0)} 50%{clip-path:inset(30% 0 50% 0)} }
+@keyframes dash     { to { stroke-dashoffset: 0 } }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+@keyframes shimmer  { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes orbitX   { from{transform:rotateY(0deg) translateX(120px) rotateY(0deg)}
+                      to{transform:rotateY(360deg) translateX(120px) rotateY(-360deg)} }
+@keyframes neonPulse { 0%,100%{box-shadow:0 0 10px currentColor,0 0 20px currentColor}
+                       50%{box-shadow:0 0 20px currentColor,0 0 40px currentColor,0 0 60px currentColor} }
+
+/* ── MODE TOGGLE ── */
+.mode-toggle {
+  position: fixed; top: 1.2rem; right: 5rem; z-index: 1000;
+  display: flex; align-items: center; gap: .8rem;
+  background: rgba(0,0,0,0.4); backdrop-filter: blur(20px);
+  border-radius: 50px; padding: .5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer; user-select: none;
+}
+.toggle-label {
+  font-size: .7rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  transition: color .3s;
+}
+.toggle-track {
+  width: 52px; height: 28px; border-radius: 14px;
+  position: relative; transition: background .4s;
+  cursor: pointer;
+}
+.toggle-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: white; transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+}
+.toggle-thumb.active { transform: translateX(24px); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(30px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px) {
+  .mode-toggle { right: 1rem; top: 1rem; }
+}
